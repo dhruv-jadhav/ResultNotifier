@@ -1,4 +1,3 @@
-
 from bs4 import BeautifulSoup
 from lxml import etree
 import requests
@@ -23,6 +22,15 @@ def Scrape():
 
     if len(result) > 0:
         link = result[0].get('href')
-        return True, link, time
+
+        with open('C:/Users/dhruvjadhav/PycharmProjects/ResultNotifier/log.txt', 'w+') as file:
+            file.write(f"{time}: {link}: True")
+            file.close()
+
+        return 'True', link, time
     else:
-        return False
+        with open('C:/Users/dhruvjadhav/PycharmProjects/ResultNotifier/log.txt', 'w+') as file:
+            file.write(f"{time}: False")
+            file.close()
+
+        return 'False'

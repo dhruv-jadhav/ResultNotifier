@@ -60,9 +60,7 @@ def FireEmail(sender, receiver, link, time):
         server.close()
 
 # -----------------------------------------------------------------------------------------
-
-# Check for link
-if Scrape()[0]:
+if Scrape()[0] == 'True':
     for k in receivers:
         FireEmail(sender="wow.acdc2005@gmail.com", receiver=k, link=Scrape()[1], time=Scrape()[2])
 else:
