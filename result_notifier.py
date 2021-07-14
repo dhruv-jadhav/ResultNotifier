@@ -9,7 +9,7 @@ def Scrape():
 
     time = now.strftime("%d-%m-%Y: %a (%I:%M:%S %p)")
 
-    link = "https://cbseresults.nic.in/CBSEResults/Page/Page?PageId=19&LangId=P"
+    link = "http://cbseresults.nic.in/CBSEResults/Page/Page?PageId=19&LangId=P"
 
     headers = ({'User-Agent':
                 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 \
@@ -19,7 +19,7 @@ def Scrape():
     webpage = requests.get(link, headers=headers)
     soup = BeautifulSoup(webpage.content, "html.parser")
     dom = etree.HTML(str(soup))
-    result = dom.xpath("//a[contains(text(), 'CENTRAL TEACHER ELIGIBILITY TEST (CTET) JANUARY - 2021')]")
+    result = dom.xpath("//a[contains(text(), 'Secondary School Examination')]")
 
     if len(result) > 0:
         link = result[0].get('href')

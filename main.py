@@ -5,6 +5,7 @@ import os
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
+receivers = ["dhruvjadhav225@gmail.com", "cskharche2005@gmail.com", "aravidind@gmail.com"]
 
 def FireEmail(sender, receiver, link, time):
     global server
@@ -58,4 +59,7 @@ def FireEmail(sender, receiver, link, time):
         server.close()
 
 if Scrape()[0]:
-    FireEmail(sender="wow.acdc2005@gmail.com", receiver="dhruvjadhav225@gmail.com", link=Scrape()[1], time=Scrape()[2])
+    for k in receivers:
+        FireEmail(sender="wow.acdc2005@gmail.com", receiver=k, link=Scrape()[1], time=Scrape()[2])
+else:
+    print("Gotta wait for some more time")
