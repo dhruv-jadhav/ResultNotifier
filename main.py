@@ -7,6 +7,7 @@ from email.mime.text import MIMEText
 
 receivers = ["dhruvjadhav225@gmail.com", "cskharche2005@gmail.com", "aravidind@gmail.com"]
 
+# Email sender function
 def FireEmail(sender, receiver, link, time):
     global server
     try:
@@ -58,6 +59,9 @@ def FireEmail(sender, receiver, link, time):
     finally:
         server.close()
 
+# -----------------------------------------------------------------------------------------
+
+# Check for link
 if Scrape()[0]:
     for k in receivers:
         FireEmail(sender="wow.acdc2005@gmail.com", receiver=k, link=Scrape()[1], time=Scrape()[2])
